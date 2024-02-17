@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { StyleSheet, View, FlatList, Button } from "react-native";
+import { StatusBar } from "expo-status-bar";
 
 import GoalInput from "./components/GoalInput";
 import GoalItem from "./components/GoalItem";
@@ -32,33 +33,36 @@ export default function App() {
   }
 
   return (
-    <View style={styles.appComponent}>
-      <Button
-        title="Add New Goal"
-        style={{ color: "#5e0acc" }}
-        onPress={startAddGoalHandler}
-      />
-      <GoalInput
-        visible={modalIsVisiable}
-        onAddGoal={addGoalHandler}
-        onCancle={endAddGoalHandler}
-      />
-      <View style={styles.goalContainer}>
-        <FlatList
-          data={courseGoals}
-          renderItem={(itemData) => {
-            return (
-              <GoalItem
-                text={itemData.item.text}
-                id={itemData.item.Key}
-                onDeleteItem={daleteGoalHandler}
-              />
-            );
-          }}
-          alwaysBounceVertical={false}
+    <>
+      <StatusBar style="light" />
+      <View style={styles.appComponent}>
+        <Button
+          title="Add New Goal"
+          color="#a065ec"
+          onPress={startAddGoalHandler}
         />
+        <GoalInput
+          visible={modalIsVisiable}
+          onAddGoal={addGoalHandler}
+          onCancle={endAddGoalHandler}
+        />
+        <View style={styles.goalContainer}>
+          <FlatList
+            data={courseGoals}
+            renderItem={(itemData) => {
+              return (
+                <GoalItem
+                  text={itemData.item.text}
+                  id={itemData.item.Key}
+                  onDeleteItem={daleteGoalHandler}
+                />
+              );
+            }}
+            alwaysBounceVertical={false}
+          />
+        </View>
       </View>
-    </View>
+    </>
   );
 }
 
@@ -67,6 +71,7 @@ const styles = StyleSheet.create({
     flex: 1, // Makes the wrapper container (parentcontainer) takes all the available height of the page
     paddingTop: 50,
     paddingHorizontal: 16,
+    backgroundColor: "#1e085a",
   },
 
   goalContainer: {

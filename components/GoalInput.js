@@ -36,10 +36,10 @@ function GoalInput(props) {
         />
         <View style={styles.buttonContainer}>
           <View style={styles.button}>
-            <Button title="Add goal" onPress={addGoalHandler} />
+            <Button title="Add goal" onPress={addGoalHandler} color="#b180f0" />
           </View>
           <View style={styles.button}>
-            <Button title="Cancle" onPress={props.onCancle} />
+            <Button title="Cancle" onPress={props.onCancle} color="#f31282" />
           </View>
         </View>
       </View>
@@ -51,11 +51,12 @@ export default GoalInput;
 
 const styles = StyleSheet.create({
   inputContainer: {
+    marginTop: 10,
     flex: 1, // Should now make the parent of it have a fixed height (or dynamic but it does not change accoring to children)
     justifyContent: "center",
     alignItems: "center",
     padding: 16,
-    backgroundColor: "#b311b6b",
+    backgroundColor: "#311b6b",
   },
   image: {
     width: 100,
@@ -64,9 +65,12 @@ const styles = StyleSheet.create({
   },
   textInput: {
     borderWidth: 1,
-    borderColor: "#cccccc",
-    width: "70%",
-    padding: 8,
+    borderColor: "#e4d0ff",
+    borderRadius: 6,
+    color: "#120438",
+    backgroundColor: "#e4d0ff",
+    width: "100%",
+    padding: 16,
   },
   buttonContainer: {
     marginTop: 16,
