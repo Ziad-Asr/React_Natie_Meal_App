@@ -14,8 +14,20 @@ export default function App() {
     <View style={styles.rootStyle}>
       <StatusBar style="dark" />
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="MealsCategories" component={CatigoriesScreen} />
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: { backgroundColor: "#651401" },
+            headerTintColor: "white",
+            cardStyle: { backgroundColor: "#3f2f25" },
+          }}
+        >
+          <Stack.Screen
+            name="MealsCategories"
+            component={CatigoriesScreen}
+            options={{
+              title: "All Categories",
+            }}
+          />
           <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
         </Stack.Navigator>
       </NavigationContainer>
@@ -29,3 +41,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#24180f",
   },
 });
+
+// Overflow: 'hidden' ===> Hide the shaowing on ios
